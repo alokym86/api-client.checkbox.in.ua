@@ -26,6 +26,9 @@ import ua.checkbox.j8client.model.CashierAccessTokenResponseModel;
 import ua.checkbox.j8client.model.HTTPError;
 
 import javax.net.ssl.*;
+//import javax.swing.text.html.HTML;
+import javax.swing.text.html.HTMLDocument;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -930,9 +933,15 @@ public class ApiClient {
             if (response.body() != null) {
                 try {
                     respBody = response.body().string();
-                    ResponseBody newbody = ResponseBody.create(response.body().contentType(), respBody);
-                    HTTPError er = deserialize(response.newBuilder().body(newbody).build(), HTTPError.class);
-                    respBody = er.getMessage();
+                    MediaType contType = response.body().contentType();
+                    ResponseBody newbody = ResponseBody.create(contType, respBody);
+                    if ("text".equals(contType.type()) && "html".equals(contType.subtype())){
+//                    	if ("text/html".equalsIgnoreCase(response.headers().get("Content-Type"))){
+                    	respBody = respBody.replaceAll("\n", "").replaceAll("\r", "");
+                    } else {
+	                    HTTPError er = deserialize(response.newBuilder().body(newbody).build(), HTTPError.class);
+	                    respBody = er.getMessage();
+                    }
                 } catch (IOException e) {
                     throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
                 }
