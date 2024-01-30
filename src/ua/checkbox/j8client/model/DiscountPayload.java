@@ -13,15 +13,10 @@
 package ua.checkbox.j8client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
-import java.math.BigDecimal;
 /**
  * DiscountPayload
  */
@@ -41,7 +36,7 @@ public class DiscountPayload {
   private AnyOfDiscountPayloadTaxCode taxCode = null;
 
   @SerializedName("tax_codes")
-  private AnyOfDiscountPayloadTaxCodes taxCodes = null;
+  private List<Integer> taxCodes;
 
   @SerializedName("name")
   private String name = null;
@@ -118,7 +113,7 @@ public class DiscountPayload {
     this.taxCode = taxCode;
   }
 
-  public DiscountPayload taxCodes(AnyOfDiscountPayloadTaxCodes taxCodes) {
+  public DiscountPayload taxCodes(List<Integer> taxCodes) {
     this.taxCodes = taxCodes;
     return this;
   }
@@ -128,11 +123,11 @@ public class DiscountPayload {
    * @return taxCodes
   **/
   @Schema(description = "")
-  public AnyOfDiscountPayloadTaxCodes getTaxCodes() {
+  public List<Integer> getTaxCodes() {
     return taxCodes;
   }
 
-  public void setTaxCodes(AnyOfDiscountPayloadTaxCodes taxCodes) {
+  public void setTaxCodes(List<Integer> taxCodes) {
     this.taxCodes = taxCodes;
   }
 
