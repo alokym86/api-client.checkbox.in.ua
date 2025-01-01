@@ -40,7 +40,7 @@ public class CardPaymentPayload implements AnyOfCalculatedReceiptSellPayloadPaym
   private Integer value = null;
 
   @SerializedName("label")
-  private String label = "Картка";
+  private String label = null;
 
   @SerializedName("card_mask")
   private String cardMask = null;
