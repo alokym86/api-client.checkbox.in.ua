@@ -60,7 +60,7 @@ public class _Api {
     /**
      * Build call for getCurrencyRateApiV1CurrencyRateCurrencyCodeGet
      * @param currencyCode  (required)
-     * @param xClientName Наза клієнту або сервісу що інтегрується з API, наприклад &#x27;My Custom SDK&#x27; (optional)
+     * @param xClientName Наза клієнту або сервісу що інтегрується з API, наприклад &#x27;My Custom SDK&#x27;
      * @param xClientVersion Номер версії клінту що інтегрується з API, наприклад &#x27;v1.2.5&#x27; (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener

@@ -82,7 +82,7 @@ import java.util.Map;
 public class DefaultApi {
     private ApiClient apiClient;
  
-	private String xClientName = null;
+	private String xClientName = "rolada-api-integration";
     private String xClientVersion = null;
     
     public DefaultApi(String path) {
