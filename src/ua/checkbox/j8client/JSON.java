@@ -51,204 +51,7 @@ public class JSON {
     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
 
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-//          .registerTypeSelector(DiscountMode.class, new TypeSelector<DiscountMode>() {
-//            @Override
-//            public Class<? extends DiscountMode> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends DiscountMode>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("DiscountMode".toUpperCase(), DiscountMode.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(DiscountMode.class, new PostProcessor<DiscountMode>() {
-//              @Override
-//              public void postDeserialize(DiscountMode result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, DiscountMode src, Gson gson) {
-//                  Map<Class<? extends DiscountMode>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(DiscountMode.class, "DiscountMode");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-//          .registerTypeSelector(DiscountType.class, new TypeSelector<DiscountType>() {
-//            @Override
-//            public Class<? extends DiscountType> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends DiscountType>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("DiscountType".toUpperCase(), DiscountType.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(DiscountType.class, new PostProcessor<DiscountType>() {
-//              @Override
-//              public void postDeserialize(DiscountType result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, DiscountType src, Gson gson) {
-//                  Map<Class<? extends DiscountType>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(DiscountType.class, "DiscountType");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-//          .registerTypeSelector(PaymentType.class, new TypeSelector<PaymentType>() {
-//            @Override
-//            public Class<? extends PaymentType> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends PaymentType>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("PaymentType".toUpperCase(), PaymentType.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(PaymentType.class, new PostProcessor<PaymentType>() {
-//              @Override
-//              public void postDeserialize(PaymentType result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, PaymentType src, Gson gson) {
-//                  Map<Class<? extends PaymentType>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(PaymentType.class, "PaymentType");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-//          .registerTypeSelector(ReportPayload.class, new TypeSelector<ReportPayload>() {
-//            @Override
-//            public Class<? extends ReportPayload> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends ReportPayload>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("AllOfCloseShiftPayloadReport".toUpperCase(), AllOfCloseShiftPayloadReport.class);
-//                    classByDiscriminatorValue.put("AllOfShortCloseShiftPayloadReport".toUpperCase(), AllOfShortCloseShiftPayloadReport.class);
-//                    classByDiscriminatorValue.put("ReportPayload".toUpperCase(), ReportPayload.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(ReportPayload.class, new PostProcessor<ReportPayload>() {
-//              @Override
-//              public void postDeserialize(ReportPayload result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, ReportPayload src, Gson gson) {
-//                  Map<Class<? extends ReportPayload>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(AllOfCloseShiftPayloadReport.class, "AllOfCloseShiftPayloadReport");
-//                      discriminatorValueByClass.put(AllOfShortCloseShiftPayloadReport.class, "AllOfShortCloseShiftPayloadReport");
-//                      discriminatorValueByClass.put(ReportPayload.class, "ReportPayload");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-//          .registerTypeSelector(GoodDetailsPayload.class, new TypeSelector<GoodDetailsPayload>() {
-//            @Override
-//            public Class<? extends GoodDetailsPayload> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends GoodDetailsPayload>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("AllOfGoodItemPayloadGood".toUpperCase(), AllOfGoodItemPayloadGood.class);
-//                    classByDiscriminatorValue.put("AllOfOrderGoodItemModelGood".toUpperCase(), AllOfOrderGoodItemModelGood.class);
-//                    classByDiscriminatorValue.put("GoodDetailsPayload".toUpperCase(), GoodDetailsPayload.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(GoodDetailsPayload.class, new PostProcessor<GoodDetailsPayload>() {
-//              @Override
-//              public void postDeserialize(GoodDetailsPayload result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, GoodDetailsPayload src, Gson gson) {
-//                  Map<Class<? extends GoodDetailsPayload>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(AllOfGoodItemPayloadGood.class, "AllOfGoodItemPayloadGood");
-//                      discriminatorValueByClass.put(AllOfOrderGoodItemModelGood.class, "AllOfOrderGoodItemModelGood");
-//                      discriminatorValueByClass.put(GoodDetailsPayload.class, "GoodDetailsPayload");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-//          .registerTypeSelector(PaginationMeta.class, new TypeSelector<PaginationMeta>() {
-//            @Override
-//            public Class<? extends PaginationMeta> getClassForElement(JsonElement readElement) {
-//                Map<String, Class<? extends PaginationMeta>> classByDiscriminatorValue = new HashMap<>();
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_DetailedCashRegisterModel_Meta".toUpperCase(), AllOfPaginatedResultDetailedCashRegisterModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_GoodModel_Meta".toUpperCase(), AllOfPaginatedResultGoodModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_OrderModel_Meta".toUpperCase(), AllOfPaginatedResultOrderModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_ReceiptModel_Meta".toUpperCase(), AllOfPaginatedResultReceiptModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_ReportModel_Meta".toUpperCase(), AllOfPaginatedResultReportModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_ShiftWithCashRegisterModel_Meta".toUpperCase(), AllOfPaginatedResultShiftWithCashRegisterModelMeta.class);
-//                    classByDiscriminatorValue.put("AllOfPaginatedResult_ShortTransaction_Meta".toUpperCase(), AllOfPaginatedResultShortTransactionMeta.class);
-//                    classByDiscriminatorValue.put("PaginationMeta".toUpperCase(), PaginationMeta.class);
-//                return getClassByDiscriminator(
-//                            classByDiscriminatorValue,
-//                            getDiscriminatorValue(readElement, ""));
-//            }
-//          })
-//          .registerPostProcessor(PaginationMeta.class, new PostProcessor<PaginationMeta>() {
-//              @Override
-//              public void postDeserialize(PaginationMeta result, JsonElement src, Gson gson) {
-//
-//              }
-//
-//              @Override
-//              public void postSerialize(JsonElement result, PaginationMeta src, Gson gson) {
-//                  Map<Class<? extends PaginationMeta>, String> discriminatorValueByClass = new HashMap<>();
-//                      discriminatorValueByClass.put(AllOfPaginatedResultDetailedCashRegisterModelMeta.class, "AllOfPaginatedResult_DetailedCashRegisterModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultGoodModelMeta.class, "AllOfPaginatedResult_GoodModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultOrderModelMeta.class, "AllOfPaginatedResult_OrderModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultReceiptModelMeta.class, "AllOfPaginatedResult_ReceiptModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultReportModelMeta.class, "AllOfPaginatedResult_ReportModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultShiftWithCashRegisterModelMeta.class, "AllOfPaginatedResult_ShiftWithCashRegisterModel_Meta");
-//                      discriminatorValueByClass.put(AllOfPaginatedResultShortTransactionMeta.class, "AllOfPaginatedResult_ShortTransaction_Meta");
-//                      discriminatorValueByClass.put(PaginationMeta.class, "PaginationMeta");
-//                  if(result instanceof JsonObject)
-//                  {
-//                      if(!((JsonObject) result).has(""))
-//                      {
-//                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-//                      }
-//                  }
-//              }
-//          })
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         return fireBuilder.createGsonBuilder();
     }
 
@@ -311,7 +114,9 @@ public class JSON {
      * @return String representation of the JSON
      */
     public String serialize(Object obj) {
-        return gson.toJson(obj);
+    	String json = gson.toJson(obj);
+//    	System.out.println(json);
+        return json;
     }
 
     /**
@@ -324,7 +129,7 @@ public class JSON {
      */
     @SuppressWarnings("unchecked")
     public <T> T deserialize(String body, Type returnType) {
-    	System.out.println(body);
+//    	System.out.println(body);
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
