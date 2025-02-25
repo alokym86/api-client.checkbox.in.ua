@@ -31,7 +31,7 @@ public class CashPaymentPayload implements AnyOfCalculatedReceiptSellPayloadPaym
   private Integer value = null;
 
   @SerializedName("label")
-  private String label = "Готівка";
+  private String label = null;
 
   public CashPaymentPayload type(PaymentType type) {
     this.type = type;
